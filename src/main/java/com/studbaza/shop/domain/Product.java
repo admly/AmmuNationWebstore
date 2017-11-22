@@ -12,7 +12,6 @@ import javax.xml.bind.annotation.XmlTransient;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.web.multipart.MultipartFile;
 
-
 public class Product {
     @Pattern(regexp = "P[0-9]+", message = "{Pattern.Product.productId.validation}")
     private String productId;
