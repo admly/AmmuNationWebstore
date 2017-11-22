@@ -1,6 +1,5 @@
 package com.studbaza.shop.domain;
 
-
 import java.math.BigDecimal;
 
 import javax.validation.constraints.Digits;
