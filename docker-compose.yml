@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+    ammunation-backend:
+        build: .
+        environment:
+            - JAVA_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005
+        expose:
+            - "80" # REST Api, Monitoring Api & Swagger
+            - "5005" # Application debug port
+        ports:
+            - "8989:8080"
+            - "5005:5005"
+    database:
+        image: mysql:5.6
+        environment:
+            MYSQL_ROOT_PASSWORD: ammunation
+            MYSQL_DATABASE: app
+        ports:
+            - 8080:8080
+    frontend:
+        image: nginx:latest
+        volumes:
+              - ./web:/usr/share/nginx/html
+        expose:
+            - "80" # Web Client
+        ports:
+            - "7080:80"

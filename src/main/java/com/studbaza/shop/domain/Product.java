@@ -2,6 +2,7 @@ package com.studbaza.shop.domain;
 
 import java.math.BigDecimal;
 
+import javax.persistence.Entity;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
@@ -11,6 +12,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.web.multipart.MultipartFile;
+
 
 public class Product {
     @Pattern(regexp = "P[0-9]+", message = "{Pattern.Product.productId.validation}")
