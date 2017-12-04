@@ -1,13 +1,13 @@
 #!/bin/sh
 
-function printMsg() {
+printMsg()  {
 	echo 
 	echo "###################################################"
 	echo "## $1 ##"
 	echo "###################################################"
 }
 
-function stopContainers() {
+stopContainers() {
 	docker stop ammunationwebstore_ammunation-backend_1
 	docker stop ammunationwebstore_frontend_1
 	docker stop ammunationwebstore_database_1
