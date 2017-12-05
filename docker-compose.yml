@@ -11,13 +11,17 @@ services:
         ports:
             - "8989:8080"
             - "5005:5005"
+        depends_on:
+            - database
     database:
         image: mysql:5.6
         environment:
             MYSQL_ROOT_PASSWORD: ammunation
             MYSQL_DATABASE: app
+        expose:
+            - "3306"
         ports:
-            - 8080:3306
+            - "8080:3306"
     frontend:
         image: nginx:latest
         volumes:
