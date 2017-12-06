@@ -11,6 +11,7 @@ public class ShopApplicationTests {
 
 	@Test
 	public void contextLoads() {
+		System.out.print("WORKS");
 	}
 
 }

@@ -27,7 +27,7 @@ case $PARAMETER in
 		printMsg "Clean jar"
         gradle clean
         printMsg "Build jar"
-        gradle build
+        gradle build -x test
         printMsg "Stop docker containers"
 		stopContainers
 		printMsg "Rebuild docker containers"
@@ -40,6 +40,15 @@ case $PARAMETER in
     stop)
 		printMsg "Stop docker containers"
 		stopContainers
+        break
+        ;;
+    tests)
+        printMsg "Start DB"
+        docker run -d --name testdb -p 8080:3306 mysql:5.6
+        printMsg "Tests"
+        gradle build
+        docker stop testdb
+        docker rm --force testdb
         break
         ;;
 	*)
