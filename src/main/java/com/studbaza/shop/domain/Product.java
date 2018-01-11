@@ -31,6 +31,8 @@ public class Product {
 
     private String description;
     private String manufacturer;
+
+
     private String category;
     private long unitsInStock;
     private long unitsInOrder;
@@ -41,5 +43,14 @@ public class Product {
     public String toString() {
         return "Produkt [productId=" + productId + ", nazwa=" + name + "]";
     }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
 
 }
