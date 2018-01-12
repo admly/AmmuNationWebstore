@@ -30,7 +30,6 @@ public class Product {
     private BigDecimal unitPrice;
 
     private String description;
-    private String manufacturer;
     private String category;
     private long unitsInStock;
     private long unitsInOrder;
