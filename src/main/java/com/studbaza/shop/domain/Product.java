@@ -31,13 +31,10 @@ public class Product {
 
     private String description;
     private String manufacturer;
-
-
     private String category;
     private long unitsInStock;
     private long unitsInOrder;
     private String productImage;
-
 
     @Override
     public String toString() {
