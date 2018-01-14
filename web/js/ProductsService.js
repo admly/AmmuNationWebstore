@@ -1,18 +1,20 @@
-angular.module('App').service('ProductsService', function($http) {
+angular.module('App').service( 'ProductsService', function($http) {
     
-    var products = {};
+    var products = [];
+
+    this.init = function(successCallback, failedCallback) {
+        $http.get(window.endpoint + "/products").then(
+            function(respnse) {
+                console.log("Product Service: Got products");
+                products = respnse.data;
+                console.log(products);
+                successCallback();
+            }, failedCallback
+        )
+    };
     
-    this.init = function(successCallback) {
-        // implement rest here
-        products = [
-                    {'name':'ak-47', 'price':'436,55', 'photo':'images/products/ak47.jpg'},
-                    {'name':'mp5', 'price':'126,53', 'photo':'images/products/mp5.jpg'}
-                    ];
-        successCallback();
-    }
-    
-    this.getProducts = function() {
+    this.getProducts = function(update) {
         return products;
-    }
+    };
     
 });

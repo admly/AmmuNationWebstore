@@ -1,2 +1,3 @@
-angular.module("App", []).
-    value('endpoint', window.location.protocol + '//' + window.location.hostname + ':8989/api');
+angular.module("App", ['ngRoute']);
+
+window.endpoint = window.location.protocol + '//' + window.location.hostname + ':8989/api';

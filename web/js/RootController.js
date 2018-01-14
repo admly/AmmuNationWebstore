@@ -1,15 +1,23 @@
-angular.module('App').controller('RootController', function($scope, $q, ProductsService, ContentService, endpoint) {
+angular.module('App').controller('RootController', function($scope, $q, ProductsService, ContentService) {
+
+    $scope.pageLoaded = false;
+
+    $scope.failed = function (response) {
+        console.log("Failed to load!");
+    }
+
     // after successful login start loading page
     $scope.$on('Login', function(event) {
         $scope.notAuthorized = false;
 
-        ContentService.init(function() {
-            $scope.$emit('ContentLoaded');
-        });
+        ContentService.init(
+            function() {
+                $scope.$emit('ContentLoaded');
+            }, $scope.failed);
 
         ProductsService.init(function() {
             $scope.$emit('ProductsLoaded');
-        });
+        }, $scope.failed);
 
         event.stopPropagation();
 
@@ -28,4 +36,5 @@ angular.module('App').controller('RootController', function($scope, $q, Products
     
     // swap this with AuthorizationService function -> this should emit
     $scope.$emit('Login');
+
 });
